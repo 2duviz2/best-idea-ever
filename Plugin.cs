@@ -44,7 +44,7 @@ public class Plugin : BaseUnityPlugin
 
 public class PluginInfo
 {
-    public const string GUID = "AuthorName.ModName";
-    public const string Name = "ModName";
-    public const string Version = "1.0.0";
+    public const string GUID = "duviz.BestIdeaEver";
+    public const string Name = "BestIdeaEver";
+    public const string Version = "0.1";
 }
