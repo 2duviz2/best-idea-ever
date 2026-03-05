@@ -1,12 +1,16 @@
 ﻿namespace Mod;
 
+using HarmonyLib;
 using Mod.UI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 [CreateOnStart]
 public class DebugInfo : MonoBehaviour
@@ -68,10 +72,11 @@ public class DebugInfo : MonoBehaviour
     public void Update()
     {
         UpdateFps();
+        UpdateDebug();
 
         if (LevelSelector.Showing || (!NewMovement.Instance || !NewMovement.Instance.gameObject.activeInHierarchy))
         {
-            foreach (var (t, i) in texts)
+            foreach (var (t, _) in texts)
                 t.gameObject.SetActive(false);
             return;
         }
@@ -85,6 +90,12 @@ public class DebugInfo : MonoBehaviour
                 t.text = $"{i}: {GetText(i)}";
             t.color = GetColor(i);
         }
+    }
+
+    public void UpdateDebug()
+    {
+        Debug.developerConsoleEnabled = true;
+        Debug.developerConsoleVisible = true;
     }
 
     public void UpdateFps()
@@ -182,4 +193,21 @@ public class DebugInfo : MonoBehaviour
         TMP_Text text = Builder.Text(canvas.gameObject, new Vector2(0, 1080 - texts.Count * 20), new Vector2(500, 20), 20, type.ToString());
         texts.Add((text, type));
     }
+}
+
+[HarmonyPatch(typeof(Debug), nameof(Debug.isDebugBuild), MethodType.Getter)]
+public static class DebugPatch
+{
+    public static bool Prefix(ref bool __result)
+    {
+        __result = true;
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class DebugPatchesInGeneral
+{
+    [HarmonyPatch(typeof(Debug), nameof(Debug.ClearDeveloperConsole))]
+    public static bool Prefix() { return false; }
 }
