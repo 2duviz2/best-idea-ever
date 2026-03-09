@@ -21,6 +21,8 @@ public class DebugInfo : MonoBehaviour
         Version,
         UnityVersion,
         Scene,
+        LastScene,
+        PendingScene,
         Position,
         Rotation,
         Gravity,
@@ -46,6 +48,8 @@ public class DebugInfo : MonoBehaviour
         AddText(InfoType.UnityVersion);
         AddText(InfoType.Version);
         AddText(InfoType.Scene);
+        AddText(InfoType.LastScene);
+        AddText(InfoType.PendingScene);
 
         AddText(InfoType.Space);
 
@@ -149,6 +153,10 @@ public class DebugInfo : MonoBehaviour
                 return NewMovement.Instance ? NewMovement.Instance.activated.ToString() : "null";
             case InfoType.Scene:
                 return SceneHelper.CurrentScene;
+            case InfoType.LastScene:
+                return SceneHelper.LastScene;
+            case InfoType.PendingScene:
+                return SceneHelper.PendingScene;
         }
         return "Null";
     }
