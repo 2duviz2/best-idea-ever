@@ -37,8 +37,9 @@ public static class Builder
     {
         GameObject obj = new GameObject("Text");
         obj.transform.SetParent(container.transform, false);
+
         RectTransform rect = obj.GetOrAddComponent<RectTransform>();
-        ApplyDefaultRect(rect);
+        rect.ApplyDefaults();
         rect.position = position;
         rect.sizeDelta = sizeDelta;
 
@@ -54,10 +55,14 @@ public static class Builder
         return Text;
     }
 
-    public static void ApplyDefaultRect(RectTransform rect)
+    extension(RectTransform rect)
     {
-        rect.anchorMin = new Vector2(0, 1);
-        rect.anchorMax = new Vector2(0, 1);
-        rect.pivot = new Vector2(0, 1);
+        /// <summary> Sets both anchors and pivots to (0, 1) </summary>
+        public void ApplyDefaults()
+        {
+            rect.anchorMin = new Vector2(0, 1);
+            rect.anchorMax = new Vector2(0, 1);
+            rect.pivot = new Vector2(0, 1);
+        }
     }
 }
