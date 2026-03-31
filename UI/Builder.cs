@@ -40,7 +40,7 @@ public static class Builder
 
         RectTransform rect = obj.GetOrAddComponent<RectTransform>();
         rect.ApplyDefaults();
-        rect.position = position;
+        rect.anchoredPosition = position;
         rect.sizeDelta = sizeDelta;
 
         if (!font) LoadFont();

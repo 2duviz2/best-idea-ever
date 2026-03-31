@@ -29,7 +29,7 @@ public class LevelSelector : MonoBehaviour
         ];
 
     public int currentSelected = 0;
-    public static bool Showing = true;
+    public static bool Showing = false;
 
     public void Start()
     {
@@ -50,15 +50,15 @@ public class LevelSelector : MonoBehaviour
         if (!Showing)
         {
             foreach (var text in texts)
-                text.rectTransform.position = new Vector2(-300, text.rectTransform.position.y);
+                text.rectTransform.anchoredPosition = new Vector2(-300, text.rectTransform.anchoredPosition.y);
             return;
         }
 
         int i = 0;
         foreach (var text in texts)
         {
-            float x = text.rectTransform.position.x;
-            text.rectTransform.position = new Vector2(x - (x - (currentSelected == i ? 30 : 0)) / 5f, text.rectTransform.position.y);
+            float x = text.rectTransform.anchoredPosition.x;
+            text.rectTransform.anchoredPosition = new Vector2(x - (x - (currentSelected == i ? 30 : 0)) / 5f, text.rectTransform.anchoredPosition.y);
             if (currentSelected == i) text.color = new Color(1, 0, 0, 1);
             else text.color = new Color(1, 1, 1, 1);
             i++;
@@ -77,7 +77,7 @@ public class LevelSelector : MonoBehaviour
 
     public void CreateTexts()
     {
-        float yOffset = 1080;
+        float yOffset = 0;
 
         int i = 0;
         foreach (var level in levels)

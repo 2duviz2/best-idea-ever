@@ -198,7 +198,7 @@ public class DebugInfo : MonoBehaviour
 
     public void AddText(InfoType type)
     {
-        TMP_Text text = Builder.Text(canvas.gameObject, new Vector2(0, 1080 - texts.Count * 20), new Vector2(500, 20), 20, type.ToString());
+        TMP_Text text = Builder.Text(canvas.gameObject, new Vector2(0, -texts.Count * 20), new Vector2(500, 20), 20, type.ToString());
         texts.Add((text, type));
     }
 }
