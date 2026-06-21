@@ -34,33 +34,33 @@
 
 		<!-- Assemblies via Managed -->
 		<Reference Include="BepInEx">
-			<HintPath>$(CorePath)\BepInEx.dll</HintPath>
+			<HintPath>$(CorePath)/BepInEx.dll</HintPath>
 		</Reference>
 		<Reference Include="Harmony">
-			<HintPath>$(CorePath)\0Harmony.dll</HintPath>
+			<HintPath>$(CorePath)/0Harmony.dll</HintPath>
 		</Reference>
 		<Reference Include="Assembly-CSharp :3">
-			<HintPath>$(ManagedPath)\Assembly-CSharp.dll</HintPath>
+			<HintPath>$(ManagedPath)/Assembly-CSharp.dll</HintPath>
             <Private>false</Private>
             <CopyLocal>false</CopyLocal>
 		</Reference>
 		<Reference Include="Plog meow">
-			<HintPath>$(ManagedPath)\plog.dll</HintPath>
+			<HintPath>$(ManagedPath)/plog.dll</HintPath>
 		</Reference>
 		<Reference Include="LMAO WHY WAS THIS CALLED ASSEMBLY CSHARP">
-			<HintPath>$(ManagedPath)\Unity.TextMeshPro.dll</HintPath>
+			<HintPath>$(ManagedPath)/Unity.TextMeshPro.dll</HintPath>
 		</Reference>
 		<Reference Include="UnityEngine.UI rawr">
-			<HintPath>$(ManagedPath)\UnityEngine.UI.dll</HintPath>
+			<HintPath>$(ManagedPath)/UnityEngine.UI.dll</HintPath>
 		</Reference>
 		<Reference Include="Facepunch.Steamworks.Win64 &gt;3">
-			<HintPath>$(ManagedPath)\Facepunch.Steamworks.Win64.dll</HintPath>
+			<HintPath>$(ManagedPath)/Facepunch.Steamworks.Win64.dll</HintPath>
 		</Reference>
 		<Reference Include="Unity.Addressables UwU">
-			<HintPath>$(ManagedPath)\Unity.Addressables.dll</HintPath>
+			<HintPath>$(ManagedPath)/Unity.Addressables.dll</HintPath>
 		</Reference>
 		<Reference Include="Unity.ResourceManager OwO">
-			<HintPath>$(ManagedPath)\Unity.ResourceManager.dll</HintPath>
+			<HintPath>$(ManagedPath)/Unity.ResourceManager.dll</HintPath>
 		</Reference>
 
       <Publicize Include="Assembly-CSharp" />
